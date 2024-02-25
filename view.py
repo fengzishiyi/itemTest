@@ -61,7 +61,7 @@ class View(QGraphicsView):
 
     def mouseReleaseEvent(self, event):
         if self.edge_enable:
-            self.edge_enable = False # 仅一次,然后恢复
+            # self.edge_enable = False # 仅一次,然后恢复
             item = self.get_item_at_click(event)
 
             # 判断end端点
