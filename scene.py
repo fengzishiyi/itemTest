@@ -1,0 +1,35 @@
+import math
+
+from PySide6.QtWidgets import QGraphicsScene
+from PySide6.QtGui import QColor, QPen
+from PySide6.QtCore import QLine
+
+
+class Scene(QGraphicsScene):
+
+    def __init__(self, parent=None):
+        super().__init__(parent)
+        self.setBackgroundBrush(QColor('#5F4DA7'))
+        self.setSceneRect(0, 0, 500, 500)
+
+        self.nodes = []
+        self.edges = []
+
+    def add_node(self, node):
+        self.nodes.append(node)
+        self.addItem(node)
+
+    def remove_node(self, node):
+        self.nodes.remove(node)
+        for edge in self.edges:
+            if edge.edge_wrap.start_item is node or edge.edge_wrap.end_item is node:
+                self.remove_edge(edge)
+        self.removeItem(node)
+
+    def add_edge(self, edge):
+        self.edges.append(edge)
+        self.addItem(edge)
+
+    def remove_edge(self, edge):
+        self.edges.remove(edge)
+        self.removeItem(edge)
