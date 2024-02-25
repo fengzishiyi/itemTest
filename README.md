@@ -1,0 +1,3 @@
+PySide6学习
+基于QGraphicsScene,QGraphicsView,QGraphicsItem的小项目
+实现生成,移动,删除图元.图元之间的连接
