@@ -15,10 +15,12 @@ class Scene(QGraphicsScene):
         self.nodes = []
         self.edges = []
 
+    # 添加图元
     def add_node(self, node):
         self.nodes.append(node)
         self.addItem(node)
 
+    # 移除图元,连接
     def remove_node(self, node):
         self.nodes.remove(node)
         for edge in self.edges:
@@ -26,10 +28,12 @@ class Scene(QGraphicsScene):
                 self.remove_edge(edge)
         self.removeItem(node)
 
+    # 添加边
     def add_edge(self, edge):
         self.edges.append(edge)
         self.addItem(edge)
 
+    # 移除边
     def remove_edge(self, edge):
-        self.edges.remove(edge)
-        self.removeItem(edge)
+        self.edges.remove(edge) # 删列表
+        self.removeItem(edge) #删画布
